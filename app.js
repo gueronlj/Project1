@@ -1,63 +1,82 @@
-//default query
-const allCountries = [
-   'us','ar','au','at','be','br','bg','ca','cn','co','cz','eg','fr','de','gr','hk','hu','in','id','ie','il','it','jp','lv','lt','my','mx','ma','nl','nz','ng','no','ph','pl','pt','ro','sa','rs','sg','sk','si','za','kr','se','ch','tw','th','tr','ae','ua','gb','ve'
-]
-
-const allLanguages = [
-   'ar','de','en','es','fr','he','it','nl','no','pt','ru','se','zh'
-]
-
-const allCategories = [
-   'general',
-   'business',
-   'entertainment',
-   'health',
-   'science',
-   'sports',
-   'technology'
-]
+//
+// const allCountries = [
+//    'us','ar','au','at','be','br','bg','ca','cn','co','cz','eg','fr','de','gr','hk','hu','in','id','ie','il','it','jp','lv','lt','my','mx','ma','nl','nz','ng','no','ph','pl','pt','ro','sa','rs','sg','sk','si','za','kr','se','ch','tw','th','tr','ae','ua','gb','ve'
+// ]
+//
+// const allLanguages = [
+//    'ar','de','en','es','fr','he','it','nl','no','pt','ru','se','zh'
+// ]
+//
+// const allCategories = [
+//    'general',
+//    'business',
+//    'entertainment',
+//    'health',
+//    'science',
+//    'sports',
+//    'technology'
+// ]
 
 let keyword = 'covid'
-let countryIndex = allCountries[22]
-let languageIndex = allLanguages[2]
-let categoryIndex = allCategories[5]
+let countryIndex = 'us'
+let languageIndex = 'en'
+let categoryIndex = 'general'
 
-const key = 'ad5efa85ecde97e26bac1ae906948e4a'
-let startDate = '2021-08-24'
-let keywords = `&keywords=${keyword}`
+const key = '516fdd9b73f00bef1d2919450366c2d8'
+let startDate = '2021-09-24'
+let keywords = null//`&keywords=${keyword}`
 let categories = `&cetegories=${categoryIndex}`
+let languages =`&languages=${languageIndex}`
+let countries = `&countries=${countryIndex}`
+let ajaxUrl = `http://api.mediastack.com/v1/news?access_key=${key}&date=${startDate},2021-12-31&limit=10`
+
+let languageFilter = false
+let countryFilter = false
+let categoryFilter = false
 
 $(() => {
 
-   $('.language').on('click' , (e) => {
-      target = $(event.target).parent()
-      languageIndex = target[0].id
-      console.log(languageIndex);
+   $('.btn').on('click' , (e) => {
+      languageFilter = true
+      $target = $(e.currentTarget)
+      languageIndex = $target[0].id
+      $target.toggleClass('locked')
+      // $target.toggleClass('btn')
+      $siblings = $('.language').siblings()
+      console.log($siblings);
+      for (let i = 0; i < 10; i++){
+         $($siblings[i]).toggleClass('locked')
+         $($siblings[i]).toggleClass('btn')
+         console.log($siblings[i]);
+      }
 
+      $('.content').empty()
+      console.log(applyFilters(languageIndex, countryIndex, countryIndex));
+      ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
+   })
+
+   $('.topicBtn').on('click' , (eve) => {
+      categoryFilter = true
+      categoryIndex = eve.currentTarget.innerText;
+      console.log(categoryIndex);
+      $siblings = $(eve.currentTarget).siblings()
+      for (let i = 0; i < 6; i++){
+         $($siblings[i]).toggleClass('locked')
+         $($siblings[i]).toggleClass('btn')
+         console.log($siblings[i]);
+      }
+      $('.content').empty()
+      console.log(applyFilters(languageIndex, countryIndex, countryIndex));
+      ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
    })
 
    $('.flag').on('click' , (event) => {
-      countryIndex = ((event.target).id);
+      countryIndex = (event.target).id;
       console.log(countryIndex);
-      let languages =`&languages=${languageIndex}`
-      let countries = `&countries=${countryIndex}`
-      let ajaxUrl = `http://api.mediastack.com/v1/news?access_key=${key}&date=${startDate},2021-12-31&limit=60`
-
-      if (keywords) {////////changes query based on filters.
-         ajaxUrl = ajaxUrl + keywords
-      }
-      if (countries){
-         ajaxUrl = ajaxUrl + countries
-      }
-      if (languages){
-         ajaxUrl = ajaxUrl + languages
-      }
-      if (categories){
-         ajaxUrl = ajaxUrl + categories
-      }
-
-      ajaxCall(ajaxUrl)
-
+      countryFilter = true
+      $('.content').empty()
+      console.log(applyFilters(languageIndex, countryIndex, countryIndex));
+      ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
    })
 })
 //----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE--------!!!!!!!!!!!!!!!!!!!!!!---------------------------
@@ -96,4 +115,25 @@ const ajaxCall = (url) => {
          console.log("failed to get data");
       }
    )
+}
+
+const applyFilters = (language, country, category) => {
+    languages =`&languages=${language}`
+    countries = `&countries=${country}`
+    categories = `&cetegories=${categoryIndex}`
+    ajaxUrl = `http://api.mediastack.com/v1/news?access_key=${key}&date=${startDate},2021-12-31&limit=100`
+
+   if (keywords) {////////changes query based on filters.
+      ajaxUrl = ajaxUrl + keywords
+   }
+   if (countryFilter === true){
+      ajaxUrl = ajaxUrl + countries
+   }
+   if (languageFilter === true){
+      ajaxUrl = ajaxUrl + languages
+   }
+   if (categoryFilter === true){
+      ajaxUrl = ajaxUrl + categories
+   }
+   return ajaxUrl
 }
