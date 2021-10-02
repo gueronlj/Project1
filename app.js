@@ -35,7 +35,40 @@ let countryFilter = false
 let categoryFilter = false
 
 $(() => {
+//--------------------------------carousel-------------------------------------
+   $flags =  $('.flag').siblings()
+   $maxFlags = $('.flag').siblings().length
+   console.log($maxFlags);
+   let currentImgIndex = 5
+   for (let i = 0; i < $maxFlags; i++){
+      $($flags[i]).hide()
+      $($flags[i]).appendTo($('#scope'))
+   }
+   for (let i = 0; i < 6; i++){
+      $($flags[i]).show()
+   }
+   $('#next').on('click', () => {
+      if (currentImgIndex < $maxFlags-1){
+         currentImgIndex++
+      } else {
+         currentImgIndex = 5
+      }
+      $('#scope').children().eq(currentImgIndex-6).hide()
+      $('#scope').children().eq(currentImgIndex).show()
+      console.log(currentImgIndex);
+   })
 
+   $('#previous').on('click', () => {
+      if (currentImgIndex > 5){
+         $('#scope').children().eq(currentImgIndex).hide()
+         $('#scope').children().eq(currentImgIndex-6).show()
+         currentImgIndex--
+         console.log(currentImgIndex);
+      } else {
+         currentImgIndex = 5
+      }
+   })
+//------------------------------language filter-----------------------------------
    $('.btn').on('click' , (e) => {
       languageFilter = true
       $target = $(e.currentTarget)
@@ -52,9 +85,9 @@ $(() => {
 
       $('.content').empty()
       console.log(applyFilters(languageIndex, countryIndex, countryIndex));
-      ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
+      // ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
    })
-
+//----------------------------------category filter------------------------------
    $('.topicBtn').on('click' , (eve) => {
       categoryFilter = true
       categoryIndex = eve.currentTarget.innerText;
@@ -67,7 +100,7 @@ $(() => {
       }
       $('.content').empty()
       console.log(applyFilters(languageIndex, countryIndex, countryIndex));
-      ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
+      // ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
    })
 
    $('.flag').on('click' , (event) => {
@@ -76,7 +109,7 @@ $(() => {
       countryFilter = true
       $('.content').empty()
       console.log(applyFilters(languageIndex, countryIndex, countryIndex));
-      ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
+      // ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
    })
 })
 //----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE--------!!!!!!!!!!!!!!!!!!!!!!---------------------------
@@ -99,7 +132,7 @@ const printData = (array) => {
       const $img = $('<img>').attr('src',img).appendTo($images)
    }
 }
-
+//----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE--------!!!!!!!!!!!!!!!!!!!!!!---------------------------
 const ajaxCall = (url) => {
    $.ajax(
       {
