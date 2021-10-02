@@ -27,10 +27,35 @@
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
+   background-color: #c3d3de;
+   padding: 1em .5em;
+}
+
+.languageSelect {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: flex-start;
+   background-color: #4d71a1;
+   padding: .5em;
+}
+
+.language {
+   margin: .2em .3em;
+   border: 1px solid #4d71a1;
+   border-radius: 8px;
+   background-color: #1c3975;
 }
 
 img {
    width: 40px;
    height: auto;
    margin: 5px;
+}
+
+h5 {
+   margin: .1em .3em;
+   font-weight: lighter;
+   color: white;
+   user-select: none;
 }

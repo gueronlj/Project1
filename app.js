@@ -25,17 +25,21 @@ let categoryIndex = allCategories[5]
 const key = 'ad5efa85ecde97e26bac1ae906948e4a'
 let startDate = '2021-08-24'
 let keywords = `&keywords=${keyword}`
-
-let languages =`&languages=${languageIndex}`
 let categories = `&cetegories=${categoryIndex}`
 
-
-
 $(() => {
+
+   $('.language').on('click' , (e) => {
+      target = $(event.target).parent()
+      languageIndex = target[0].id
+      console.log(languageIndex);
+
+   })
 
    $('.flag').on('click' , (event) => {
       countryIndex = ((event.target).id);
       console.log(countryIndex);
+      let languages =`&languages=${languageIndex}`
       let countries = `&countries=${countryIndex}`
       let ajaxUrl = `http://api.mediastack.com/v1/news?access_key=${key}&date=${startDate},2021-12-31&limit=60`
 
@@ -52,21 +56,8 @@ $(() => {
          ajaxUrl = ajaxUrl + categories
       }
 
+      ajaxCall(ajaxUrl)
 
-      $.ajax(
-         {
-               url:ajaxUrl
-         }
-      ).then(
-         (data) => {
-            let array = Object.values(data.data)
-            printData(array)
-   //----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE--------!!!!!!!!!!!!!!!!!!!!!!---------------------------
-         },
-         () => {
-            console.log("failed to get data");
-         }
-      )
    })
 })
 //----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE--------!!!!!!!!!!!!!!!!!!!!!!---------------------------
@@ -87,6 +78,22 @@ const printData = (array) => {
       const $url = $('<a>').addClass('info').text(url).appendTo($info)
       const $date = $('<p>').addClass('info').text(date).appendTo($info)
       const $img = $('<img>').attr('src',img).appendTo($images)
-
    }
+}
+
+const ajaxCall = (url) => {
+   $.ajax(
+      {
+            url: url
+      }
+   ).then(
+      (data) => {
+         let array = Object.values(data.data)
+         printData(array)
+//----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE--------!!!!!!!!!!!!!!!!!!!!!!---------------------------
+      },
+      () => {
+         console.log("failed to get data");
+      }
+   )
 }
