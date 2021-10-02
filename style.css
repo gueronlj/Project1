@@ -1,0 +1,36 @@
+
+.main {
+   display: flex;
+   flex-direction: column;
+   background-color: white;
+   font-family: 'Helvetica'
+}
+
+.article img {
+   width: 100%;
+}
+
+.title {
+   color: white;
+   background: linear-gradient(0deg, white, #1c3975 95%);
+   padding: .6em;
+}
+
+
+.menu {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+}
+
+.countrySelect {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+
+img {
+   width: 40px;
+   height: auto;
+   margin: 5px;
+}
