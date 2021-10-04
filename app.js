@@ -16,15 +16,15 @@
 //    'sports',
 //    'technology'
 // ]
-
-let keyword = 'covid'
+//-------------------------------default values-------------------
+let keyword = 'news'
 let countryIndex = 'us'
 let languageIndex = 'en'
 let categoryIndex = 'general'
 
 const key = '516fdd9b73f00bef1d2919450366c2d8'
 let startDate = '2021-09-24'
-let keywords = null//`&keywords=${keyword}`
+let keywords = `&keywords=${keyword}`
 let categories = `&cetegories=${categoryIndex}`
 let languages =`&languages=${languageIndex}`
 let countries = `&countries=${countryIndex}`
@@ -33,6 +33,7 @@ let ajaxUrl = `http://api.mediastack.com/v1/news?access_key=${key}&date=${startD
 let languageFilter = false
 let countryFilter = false
 let categoryFilter = false
+let keywordFilter = false
 
 $(() => {
 //--------------------------------carousel-------------------------------------
@@ -51,7 +52,7 @@ $(() => {
       if (currentImgIndex < $maxFlags-1){
          currentImgIndex++
       } else {
-         currentImgIndex = 5
+         currentImgIndex = $maxFlags
       }
       $('#scope').children().eq(currentImgIndex-6).hide()
       $('#scope').children().eq(currentImgIndex).show()
@@ -84,7 +85,7 @@ $(() => {
       }
 
       $('.content').empty()
-      console.log(applyFilters(languageIndex, countryIndex, countryIndex));
+      console.log(applyFilters(languageIndex, countryIndex, countryIndex, keyword));
       // ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
    })
 //----------------------------------category filter------------------------------
@@ -99,17 +100,27 @@ $(() => {
          console.log($siblings[i]);
       }
       $('.content').empty()
-      console.log(applyFilters(languageIndex, countryIndex, countryIndex));
+      console.log(applyFilters(languageIndex, countryIndex, countryIndex, keyword));
       // ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
    })
+//---------------------------------keyword filter-----------------------
+   $('#searchButton').on('click', () => {
+      keywordFilter = true
+      const inputValue = $('#searchInput').val()
+      keyword = inputValue
+      $('.content').empty()
+      console.log(applyFilters(languageIndex, countryIndex, countryIndex, keyword));
+      ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex, keyword))
+   })
 
+//-------------------------------------country filter-----------------
    $('.flag').on('click' , (event) => {
       countryIndex = (event.target).id;
       console.log(countryIndex);
       countryFilter = true
       $('.content').empty()
-      console.log(applyFilters(languageIndex, countryIndex, countryIndex));
-      // ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
+      console.log(applyFilters(languageIndex, countryIndex, countryIndex, keyword));
+
    })
 })
 //----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE--------!!!!!!!!!!!!!!!!!!!!!!---------------------------
@@ -126,9 +137,10 @@ const printData = (array) => {
       const $info = $('<div>').addClass('info').appendTo($article)
       const $images = $('<div>').addClass('articleImage').appendTo($article)
       const $title = $('<h3>').addClass('title').text(title).appendTo($info)
-      const $description = $('<p>').addClass('info').text(description).appendTo($info)
-      const $url = $('<a>').addClass('info').text(url).appendTo($info)
       const $date = $('<p>').addClass('info').text(date).appendTo($info)
+      const $description = $('<p>').addClass('info').text(description).appendTo($info)
+
+      const $url = $('<a>').addClass('info').text(url).appendTo($info)
       const $img = $('<img>').attr('src',img).appendTo($images)
    }
 }
@@ -150,13 +162,14 @@ const ajaxCall = (url) => {
    )
 }
 
-const applyFilters = (language, country, category) => {
+const applyFilters = (language, country, category, keyword) => {
     languages =`&languages=${language}`
     countries = `&countries=${country}`
     categories = `&cetegories=${categoryIndex}`
+    keywords = `&keywords=${keyword}`
     ajaxUrl = `http://api.mediastack.com/v1/news?access_key=${key}&date=${startDate},2021-12-31&limit=100`
 
-   if (keywords) {////////changes query based on filters.
+   if (keywordFilter ===true) {////////changes query based on filters.
       ajaxUrl = ajaxUrl + keywords
    }
    if (countryFilter === true){

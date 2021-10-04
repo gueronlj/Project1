@@ -6,16 +6,27 @@
    font-family: 'Helvetica'
 }
 
+.content {
+   margin-left: 5%;
+   margin-right: 5%
+}
+
 .article img {
    width: 100%;
 }
 
-.title {
-   color: white;
-   background: linear-gradient(0deg, white, #1c3975 95%);
-   padding: .6em;
+.info h3 {
+   color: #1c3975;
 }
 
+.info a{
+   font-size: .7em;
+}
+
+.info {
+   margin-bottom: .5em;
+   text-align:left;
+}
 
 .menu {
    display: flex;
@@ -51,7 +62,7 @@
 
 .language {
    margin: .2em .4em;
-   border-radius: 8px;
+   border-radius: 5px;
    background-color: #4287f5;
    box-shadow: 1px 1px 2px navy;
    padding: .3em;
@@ -59,7 +70,7 @@
 
 .topic {
    margin: .2em .4em;
-   border-radius: 8px;
+   border-radius: 5px;
    background-color: #69d187;
    box-shadow: 1px 1px 2px #1d4228;
    padding: .3em;
@@ -103,7 +114,7 @@ footer {
    display: flex;
    flex-direction: row;
    justify-content: space-around;
-   background-color:
+   background-color: #c3d3de;
 }
 
 .carousel div{
@@ -112,5 +123,28 @@ footer {
    justify-content: space-around;
    align-items: center;
    user-select: none;
+   color: #1c3975;
 
+}
+
+#search {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   background-color:#1c3975;
+   padding: .5em;
+}
+
+#searchInput{
+   border-radius: 5px;
+   text-align: justify;
+   margin-right: 1em;
+}
+
+#searchButton {
+   user-select: none;
+   background-color: #4287f5;
+   border-radius: 5px;
+   box-shadow: 1px 1px 2px navy;
+   color: white;
 }
