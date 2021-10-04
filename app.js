@@ -17,29 +17,21 @@
 //    'technology'
 // ]
 //-------------------------------default search terms--------------------------------
-let keyword = ''
-let countryIndex = ''
-let languageIndex = ''
-let categoryIndex = ''
+const settings = {
+   country: '',
+   language: '',
+   category: '',
+   keyword: '',
+   startDate: '2021-09-24'
+}
 
 const key = '516fdd9b73f00bef1d2919450366c2d8'
-let startDate = '2021-09-24'
-let keywords = `&keywords=${keyword}`
-let categories = `&cetegories=${categoryIndex}`
-let languages =`&languages=${languageIndex}`
-let countries = `&countries=${countryIndex}`
-let ajaxUrl = `http://api.mediastack.com/v1/news?access_key=${key}&date=${startDate},2021-12-31&limit=10`
 
-let languageFilter = null
-let countryFilter = false
-let categoryFilter = null
-let keywordFilter = false
 //----------------WARNINGGGG--!!!!!!!!!!-----DO NOT CROSS THIS LINE---!!!!!!!!!!!!!!!!!!-------
 $(() => {
 //--------------------------------carousel----------------------------------------
    $flags =  $('.flag').siblings()
    $maxFlags = $('.flag').siblings().length
-   console.log($maxFlags);
    let currentImgIndex = 5
    for (let i = 0; i < $maxFlags; i++){
       $($flags[i]).hide()
@@ -56,7 +48,6 @@ $(() => {
       }
       $('#scope').children().eq(currentImgIndex-6).hide()
       $('#scope').children().eq(currentImgIndex).show()
-      console.log(currentImgIndex);
    })
 
    $('#previous').on('click', () => {
@@ -64,19 +55,17 @@ $(() => {
          $('#scope').children().eq(currentImgIndex).hide()
          $('#scope').children().eq(currentImgIndex-6).show()
          currentImgIndex--
-         console.log(currentImgIndex);
       } else {
          currentImgIndex = 5
       }
    })
-//------------------------------language filter---------------------------
+//------------------------------language filter--------------------------------
    $('.btn').on('click' , (e) => {
       $target = $(e.currentTarget)
       if ($target.hasClass('locked')=== true){
       } else {
+         settings.language = $target[0].id
          $target.toggleClass('on')
-         languageFilter = $target
-         languageIndex = $target[0].id
          $target.toggleClass('locked')
          $target.toggleClass('btn')
          $siblings = $('.language').siblings()
@@ -85,46 +74,43 @@ $(() => {
             $($siblings[i]).toggleClass('btn')
          }
          $('.content').empty()
-         console.log(applyFilters(languageIndex, countryIndex, countryIndex, keyword));
-         // ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
+         console.log(settings);
       }
    })
 //----------------------------------category filter-----------------------
    $('.topicBtn').on('click' , (eve) => {
-      if ($(eve.currentTarget).hasClass('locked')=== true){
+      $target = $(eve.currentTarget)
+      if ($target.hasClass('locked')=== true){
       } else {
-         $(eve.currentTarget).toggleClass('on')
-         categoryFilter = $(eve.currentTarget)
-         categoryIndex = eve.currentTarget.innerText;
+         settings.category = eve.currentTarget.innerText;
+         $target.toggleClass('on')
          $siblings = $(eve.currentTarget).siblings()
          for (let i = 0; i < 6; i++){
             $($siblings[i]).toggleClass('locked')
             $($siblings[i]).toggleClass('btn')
          }
          $('.content').empty()
-         console.log(applyFilters(languageIndex, countryIndex, countryIndex, keyword));
-         // ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
+         console.log(settings);
       }
    })
 //---------------------------------keyword filter-----------------------
    $('#searchButton').on('click', () => {
-      keywordFilter = true
       const inputValue = $('#searchInput').val()
-      keyword = inputValue
+      settings.keyword = inputValue
       $('.content').empty()
-      console.log(applyFilters(languageIndex, countryIndex, countryIndex, keyword));
-      ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex, keyword))
+      $('.languageSelect').removeClass('is-active')
+      $('.topicSelect').removeClass('is-active')
+      console.log(settings);
+      console.log(applyFilters(settings));
+      ajaxCall(applyFilters(settings))
    })
-
 //-------------------------------------country filter-----------------
    $('.flag').on('click' , (event) => {
-      countryIndex = (event.target).id;
-      console.log(countryIndex);
-      countryFilter = true
+      settings.country = (event.target).id;
       $('.content').empty()
-      console.log(applyFilters(languageIndex, countryIndex, countryIndex, keyword));
-      ajaxCall(applyFilters(languageIndex, countryIndex, countryIndex, keyword))
-
+      $('.languageSelect').removeClass('is-active')
+      $('.topicSelect').removeClass('is-active')
+      console.log(settings)
    })
 //-------------------------------filters toggle--------------------------------
    $('.filterButton').on('click' , () => {
@@ -136,22 +122,26 @@ $(() => {
 //------=--WARNINGGGG----^^^^^^^^^^^^^^^^^^^-DO NOT CROSS THIS LINE^^^^^^^^^^^^^------
 
 const printData = (array) => {
-   for (let i = 0; i < array.length; i++){
-      let url = array[i].url
-      let title = array[i].title
-      let description = array[i].description
-      let img = array[i].image
-      let date = array[i].published_at
+   if (array.length > 0){
+      for (let i = 0; i < array.length; i++){
+         let url = array[i].url
+         let title = array[i].title
+         let description = array[i].description
+         let img = array[i].image
+         let date = array[i].published_at
 
-      const $article = $('<div>').addClass('article').appendTo($('#content'))
-      const $info = $('<div>').addClass('info').appendTo($article)
-      const $images = $('<div>').addClass('articleImage').appendTo($article)
-      const $title = $('<h3>').addClass('title').text(title).appendTo($info)
-      const $date = $('<p>').addClass('info').text(date).appendTo($info)
-      const $description = $('<p>').addClass('info').text(description).appendTo($info)
-
-      const $url = $('<a>').addClass('info').text(url).appendTo($info)
-      const $img = $('<img>').attr('src',img).appendTo($images)
+         const $article = $('<div>').addClass('article').appendTo($('#content'))
+         const $info = $('<div>').addClass('info').appendTo($article)
+         const $images = $('<div>').addClass('articleImage').appendTo($article)
+         const $title = $('<h3>').addClass('title').text(title).appendTo($info)
+         const $date = $('<p>').addClass('info').text(date).appendTo($info)
+         const $description = $('<p>').addClass('info').text(description).appendTo($info)
+         const $url = $('<a>').addClass('info').text(url).appendTo($info)
+         const $img = $('<img>').attr('src',img).appendTo($images)
+      }
+   }else{
+      $('<div>').addClass('error').appendTo($('#content'))
+      $('<h3>').text('Search found 0 articles...').appendTo($('.error'))
    }
 }
 //----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE---!!!!!!!!!!!!!!!!!!------------
@@ -164,6 +154,7 @@ const ajaxCall = (url) => {
       (data) => {
          let array = Object.values(data.data)
          printData(array)
+         console.log(url);
       },
       () => {
          console.log("failed to get data");
@@ -171,24 +162,11 @@ const ajaxCall = (url) => {
    )
 }
 //----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE----!!!!!!!!!!!!!!-----------
-const applyFilters = (language, country, category, keyword) => {
-    languages =`&languages=${language}`
-    countries = `&countries=${country}`
-    categories = `&cetegories=${categoryIndex}`
-    keywords = `&keywords=${keyword}`
-    ajaxUrl = `http://api.mediastack.com/v1/news?access_key=${key}&date=${startDate},2021-12-31&limit=100`
-
-   if (keywordFilter ===true) {////////changes query based on filters.
-      ajaxUrl = ajaxUrl + keywords
-   }
-   if (countryFilter === true){
-      ajaxUrl = ajaxUrl + countries
-   }
-   if (languageFilter.hasClass('on')=== true){
-      ajaxUrl = ajaxUrl + languages
-   }
-   if (categoryFilter.hasClass('on')===true){
-      ajaxUrl = ajaxUrl + categories
-   }
-   return ajaxUrl
+const applyFilters = (settings) => {
+    languages =`&languages=${settings.language}`
+    countries = `&countries=${settings.country}`
+    categories = `&categories=${settings.category}`
+    keywords = `&keywords=${settings.keyword}`
+    ajaxUrl = `http://api.mediastack.com/v1/news?access_key=${key}&date=${settings.startDate},2021-12-31&limit=20&sort=published_desc`+languages+countries+categories+keywords
+    return ajaxUrl
 }
