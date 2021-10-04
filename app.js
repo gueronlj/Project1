@@ -36,6 +36,11 @@ let categoryFilter = false
 let keywordFilter = false
 
 $(() => {
+
+   $('.filterButton').on('click' , () => {
+      $('.languageSelect').toggleClass('is-active')
+      $('.topicSelect').toggleClass('is-active')
+   })
 //--------------------------------carousel-------------------------------------
    $flags =  $('.flag').siblings()
    $maxFlags = $('.flag').siblings().length

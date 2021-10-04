@@ -1,14 +1,24 @@
 
-.main {
+body {
    display: flex;
    flex-direction: column;
    background-color: white;
-   font-family: 'Helvetica'
+   font-family: 'Helvetica';
+   margin: 0px;
+}
+
+.header {
+   display: flex;
+   flex-direction: column;
+   z-index: 100;
+   position: fixed;
+   width: 100%;
 }
 
 .content {
    margin-left: 5%;
-   margin-right: 5%
+   margin-right: 5%;
+   transform: translateY(120px);
 }
 
 .article img {
@@ -39,25 +49,41 @@
    flex-direction: row;
    flex-wrap: wrap;
    background-color: #c3d3de;
-   padding: 1em .5em;
+   padding: .3em;
 }
 
-.languageSelect {
+.languageSelect, .languageSelect:after, .languageSelect:before {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
    justify-content: flex-start;
    background-color: #1c3975;
-   padding: .5em;
+   padding: .3em;
+   z-index:99;
+   transition: .4s;
+   transform: translate(0px, 0px);
+   position: fixed;
 }
 
-.topicSelect {
+.topicSelect, .topicSelect:after, .topicSelect:before {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
    justify-content: flex-start;
    background-color:#d6ffd4;
    padding: .5em;
+   z-index: 98;
+   transition: .5s;
+   transform: translate(0px, 0px,);
+   position: fixed;
+}
+
+.languageSelect.is-active {
+   transform: translate(0px, 100%);
+}
+
+.topicSelect.is-active {
+   transform: translate(0px, 260%);
 }
 
 .language {
@@ -79,10 +105,6 @@
 .topic h5 {
    color: white;
 }
-
-/* .selected {
-   background-color: #4287f5
-} */
 
 .locked {
    background-color: #45556e;

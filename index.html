@@ -8,145 +8,144 @@
       <script src="app.js" charset="utf-8"></script>
    </head>
    <body>
-      <div class="main">
-         <div class="header">
-            <div class="banner"></div>
-            <div class="menu">
-               <div class="languageSelect">
-                  <div class="language btn" id='ar'>
-                     <h5>Arabic</h5>
-                  </div>
-                  <div class="language btn" id='de'>
-                     <h5>German</h5>
-                  </div>
-                  <div class="language btn" id='en'>
-                     <h5>English</h5>
-                  </div>
-                  <div class="language btn" id='es'>
-                     <h5>Spanish</h5>
-                  </div>
-                  <div class="language btn" id='fr'>
-                     <h5>French</h5>
-                  </div>
-                  <div class="language btn" id='it'>
-                     <h5>Italian</h5>
-                  </div>
-                  <div class="language btn" id='nl'>
-                     <h5>Dutch</h5>
-                  </div>
-                  <div class="language btn" id='no'>
-                     <h5>Norwegian</h5>
-                  </div>
-                  <div class="language btn" id='pt'>
-                     <h5>Portuguese</h5>
-                  </div>
-                  <div class="language btn" id='ru'>
-                     <h5>Russian</h5>
-                  </div>
-               </div>
-               <div class="topicSelect">
-                  <div class="topic topicBtn">
-                     <h5>general</h5>
-                  </div>
-                  <div class="topic topicBtn">
-                     <h5>business</h5>
-                  </div>
-                  <div class="topic topicBtn">
-                     <h5>entertainment</h5>
-                  </div>
-                  <div class="topic topicBtn">
-                     <h5>health</h5>
-                  </div>
-                  <div class="topic topicBtn">
-                     <h5>science</h5>
-                  </div>
-                  <div class="topic topicBtn">
-                     <h5>sports</h5>
-                  </div>
-                  <div class="topic topicBtn">
-                     <h5>technology</h5>
-                  </div>
-               </div>
+      <div class="header">
+         <div class="banner"></div>
+         <div class="carousel">
+            <div id ="previous">
+               <h1><</h1>
+            </div>
+            <div id="scope"></div>
+            <div id="next">
+               <h1>></h1>
             </div>
          </div>
-               <div class="carousel">
-                  <div id ="previous">
-                     <h1><</h1>
-                  </div>
-                  <div id="scope">
-
-                  </div>
-                  <div id="next">
-                     <h1>></h1>
-                  </div>
-               </div>
          <div id = "search">
             <input type="text" name="keyword" id ='searchInput' value="">
             <div id="searchButton">
                <h5>search</h5>
             </div>
+            <div class="filterButton">
+               <h5>more filters</h5>
+            </div>
          </div>
-               <div class="countrySelect">
-                  <img src="imgs/011-china.png" alt="" class ='flag' id='cn'>
-                  <img src="imgs/022-brazil.png" alt="" class ='flag' id='br'>
-                  <img src="imgs/033-mexico.png" alt="" class ='flag' id='mx'>
-                  <img src="imgs/055-india.png" alt="" class ='flag' id='in'>
-                  <img src="imgs/066-canada.png" alt="" class ='flag'id='ca'>
-                  <img src="imgs/072-austria.png" alt="" class ='flag'id='at'>
-                  <img src="imgs/077-netherlands.png" alt="" class ='flag'id='nl'>
-                  <img src="imgs/088-thailand.png" alt="" class ='flag'id='th'>
-                  <img src="imgs/098-portugal.png" alt="" class ='flag'id='pt'>
-                  <img src="imgs/110-united kingdom.png" alt="" class ='flag'id='gb'>
-                  <img src="imgs/127-bulgaria.png" alt="" class ='flag'id='bg'>
-                  <img src="imgs/132-singapore.png" alt="" class ='flag'id='sg'>
-                  <img src="imgs/143-australia.png" alt="" class ='flag'id='au'>
-                  <img src="imgs/154-turkey.png" alt="" class ='flag'id='t'>
-                  <img src="imgs/165-poland.png" alt="" class ='flag'id='pl'>
-                  <img src="imgs/176-switzerland.png" alt="" class ='flag'id='ch'>
-                  <img src="imgs/182-morocco.png" alt="" class ='flag'id='mo'>
-                  <img src="imgs/183-taiwan.png" alt="" class ='flag'id='tw'>
-                  <img src="imgs/184-egypt.png" alt="" class ='flag'id='eg'>
-                  <img src="imgs/185-indonesia.png" alt="" class ='flag'id='id'>
-                  <img src="imgs/186-united states.png" alt="" class ='flag'id='us'>
-                  <img src="imgs/187-philippines.png" alt="" class ='flag'id='ph'>
-                  <img src="imgs/188-south africa.png" alt="" class ='flag'id='za'>
-                  <img src="imgs/190-sweden.png" alt="" class ='flag'id='se'>
-                  <img src="imgs/192-greece.png" alt="" class ='flag'id='gr'>
-                  <img src="imgs/193-ireland.png" alt="" class ='flag'id='ie'>
-                  <img src="imgs/195-united arab emirates.png" alt="" class ='flag'id='ae'>
-                  <img src="imgs/196-hong kong.png" alt="" class ='flag'id='hk'>
-                  <img src="imgs/197-france.png" alt="" class ='flag'id='fr'>
-                  <img src="imgs/198-ukraine.png" alt="" class ='flag'id='ua'>
-                  <img src="imgs/199-argentina.png" alt="" class ='flag'id='ar'>
-                  <img src="imgs/201-colombia.png" alt="" class ='flag'id='co'>
-                  <img src="imgs/202-czech republic.png" alt="" class ='flag'id='cz'>
-                  <img src="imgs/203-israel.png" alt="" class ='flag'id='il'>
-                  <img src="imgs/204-saudi arabia.png" alt="" class ='flag'id='sa'>
-                  <img src="imgs/205-norway.png" alt="" class ='flag'id='no'>
-                  <img src="imgs/206-venezuela.png" alt="" class ='flag'id='ve'>
-                  <img src="imgs/207-malaysia.png" alt="" class ='flag'id='my'>
-                  <img src="imgs/208-germany.png" alt="" class ='flag'id='de'>
-                  <img src="imgs/209-belgium.png" alt="" class ='flag'id='be'>
-                  <img src="imgs/210-hungary.png" alt="" class ='flag'id='hu'>
-                  <img src="imgs/213-romania.png" alt="" class ='flag'id='ro'>
-                  <img src="imgs/215-new zealand.png" alt="" class ='flag'id='nz'>
-                  <img src="imgs/218-slovakia.png" alt="" class ='flag'id='sk'>
-                  <img src="imgs/219-south korea.png" alt="" class ='flag'id='kr'>
-                  <img src="imgs/228-serbia.png" alt="" class ='flag'id='rs'>
-                  <img src="imgs/231-latvia.png" alt="" class ='flag'id=''>
-                  <img src="imgs/238-lithuania.png" alt="" class ='flag'id='lt'>
-                  <img src="imgs/241-japan.png" alt="" class ='flag'id='jp'>
-                  <img src="imgs/253-nigeria.png" alt="" class ='flag'id='ni'>
-                  <img src="imgs/259-slovenia.png" alt="" class ='flag'id='sl'>
-                  <img src="imgs/263-italy.png" alt="" class ='flag'id='it'>
-               </div>
+      </div>
+      <div class="menu">
+         <div class="languageSelect">
+            <div class="language btn" id='ar'>
+               <h5>Arabic</h5>
             </div>
-            <div class='content' id="content">
+            <div class="language btn" id='de'>
+               <h5>German</h5>
             </div>
-            <footer>
-               <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            </footer>
+            <div class="language btn" id='en'>
+               <h5>English</h5>
+            </div>
+            <div class="language btn" id='es'>
+               <h5>Spanish</h5>
+            </div>
+            <div class="language btn" id='fr'>
+               <h5>French</h5>
+            </div>
+            <div class="language btn" id='it'>
+               <h5>Italian</h5>
+            </div>
+            <div class="language btn" id='nl'>
+               <h5>Dutch</h5>
+            </div>
+            <div class="language btn" id='no'>
+               <h5>Norwegian</h5>
+            </div>
+            <div class="language btn" id='pt'>
+               <h5>Portuguese</h5>
+            </div>
+            <div class="language btn" id='ru'>
+               <h5>Russian</h5>
+            </div>
+         </div>
+         <div class="topicSelect">
+            <div class="topic topicBtn">
+               <h5>general</h5>
+            </div>
+            <div class="topic topicBtn">
+               <h5>business</h5>
+            </div>
+            <div class="topic topicBtn">
+               <h5>entertainment</h5>
+            </div>
+            <div class="topic topicBtn">
+               <h5>health</h5>
+            </div>
+            <div class="topic topicBtn">
+               <h5>science</h5>
+            </div>
+            <div class="topic topicBtn">
+               <h5>sports</h5>
+            </div>
+            <div class="topic topicBtn">
+               <h5>technology</h5>
+            </div>
+         </div>
+      </div>
+      <div class="countrySelect">
+         <img src="imgs/011-china.png" alt="" class ='flag' id='cn'>
+         <img src="imgs/022-brazil.png" alt="" class ='flag' id='br'>
+         <img src="imgs/033-mexico.png" alt="" class ='flag' id='mx'>
+         <img src="imgs/055-india.png" alt="" class ='flag' id='in'>
+         <img src="imgs/066-canada.png" alt="" class ='flag'id='ca'>
+         <img src="imgs/072-austria.png" alt="" class ='flag'id='at'>
+         <img src="imgs/077-netherlands.png" alt="" class ='flag'id='nl'>
+         <img src="imgs/088-thailand.png" alt="" class ='flag'id='th'>
+         <img src="imgs/098-portugal.png" alt="" class ='flag'id='pt'>
+         <img src="imgs/110-united kingdom.png" alt="" class ='flag'id='gb'>
+         <img src="imgs/127-bulgaria.png" alt="" class ='flag'id='bg'>
+         <img src="imgs/132-singapore.png" alt="" class ='flag'id='sg'>
+         <img src="imgs/143-australia.png" alt="" class ='flag'id='au'>
+         <img src="imgs/154-turkey.png" alt="" class ='flag'id='t'>
+         <img src="imgs/165-poland.png" alt="" class ='flag'id='pl'>
+         <img src="imgs/176-switzerland.png" alt="" class ='flag'id='ch'>
+         <img src="imgs/182-morocco.png" alt="" class ='flag'id='mo'>
+         <img src="imgs/183-taiwan.png" alt="" class ='flag'id='tw'>
+         <img src="imgs/184-egypt.png" alt="" class ='flag'id='eg'>
+         <img src="imgs/185-indonesia.png" alt="" class ='flag'id='id'>
+         <img src="imgs/186-united states.png" alt="" class ='flag'id='us'>
+         <img src="imgs/187-philippines.png" alt="" class ='flag'id='ph'>
+         <img src="imgs/188-south africa.png" alt="" class ='flag'id='za'>
+         <img src="imgs/190-sweden.png" alt="" class ='flag'id='se'>
+         <img src="imgs/192-greece.png" alt="" class ='flag'id='gr'>
+         <img src="imgs/193-ireland.png" alt="" class ='flag'id='ie'>
+         <img src="imgs/195-united arab emirates.png" alt="" class ='flag'id='ae'>
+         <img src="imgs/196-hong kong.png" alt="" class ='flag'id='hk'>
+         <img src="imgs/197-france.png" alt="" class ='flag'id='fr'>
+         <img src="imgs/198-ukraine.png" alt="" class ='flag'id='ua'>
+         <img src="imgs/199-argentina.png" alt="" class ='flag'id='ar'>
+         <img src="imgs/201-colombia.png" alt="" class ='flag'id='co'>
+         <img src="imgs/202-czech republic.png" alt="" class ='flag'id='cz'>
+         <img src="imgs/203-israel.png" alt="" class ='flag'id='il'>
+         <img src="imgs/204-saudi arabia.png" alt="" class ='flag'id='sa'>
+         <img src="imgs/205-norway.png" alt="" class ='flag'id='no'>
+         <img src="imgs/206-venezuela.png" alt="" class ='flag'id='ve'>
+         <img src="imgs/207-malaysia.png" alt="" class ='flag'id='my'>
+         <img src="imgs/208-germany.png" alt="" class ='flag'id='de'>
+         <img src="imgs/209-belgium.png" alt="" class ='flag'id='be'>
+         <img src="imgs/210-hungary.png" alt="" class ='flag'id='hu'>
+         <img src="imgs/213-romania.png" alt="" class ='flag'id='ro'>
+         <img src="imgs/215-new zealand.png" alt="" class ='flag'id='nz'>
+         <img src="imgs/218-slovakia.png" alt="" class ='flag'id='sk'>
+         <img src="imgs/219-south korea.png" alt="" class ='flag'id='kr'>
+         <img src="imgs/228-serbia.png" alt="" class ='flag'id='rs'>
+         <img src="imgs/231-latvia.png" alt="" class ='flag'id=''>
+         <img src="imgs/238-lithuania.png" alt="" class ='flag'id='lt'>
+         <img src="imgs/241-japan.png" alt="" class ='flag'id='jp'>
+         <img src="imgs/253-nigeria.png" alt="" class ='flag'id='ni'>
+         <img src="imgs/259-slovenia.png" alt="" class ='flag'id='sl'>
+         <img src="imgs/263-italy.png" alt="" class ='flag'id='it'>
+      </div>
+      <div class='content' id="content">
+      </div>
+      <footer>
 
+         <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+      </footer>
       </div>
    </body>
 </html>
