@@ -16,11 +16,11 @@
 //    'sports',
 //    'technology'
 // ]
-//-------------------------------default values-------------------
-let keyword = 'news'
-let countryIndex = 'us'
-let languageIndex = 'en'
-let categoryIndex = 'general'
+//-------------------------------default search terms--------------------------------
+let keyword = ''
+let countryIndex = ''
+let languageIndex = ''
+let categoryIndex = ''
 
 const key = '516fdd9b73f00bef1d2919450366c2d8'
 let startDate = '2021-09-24'
@@ -30,18 +30,13 @@ let languages =`&languages=${languageIndex}`
 let countries = `&countries=${countryIndex}`
 let ajaxUrl = `http://api.mediastack.com/v1/news?access_key=${key}&date=${startDate},2021-12-31&limit=10`
 
-let languageFilter = false
+let languageFilter = null
 let countryFilter = false
-let categoryFilter = false
+let categoryFilter = null
 let keywordFilter = false
-
+//----------------WARNINGGGG--!!!!!!!!!!-----DO NOT CROSS THIS LINE---!!!!!!!!!!!!!!!!!!-------
 $(() => {
-
-   $('.filterButton').on('click' , () => {
-      $('.languageSelect').toggleClass('is-active')
-      $('.topicSelect').toggleClass('is-active')
-   })
-//--------------------------------carousel-------------------------------------
+//--------------------------------carousel----------------------------------------
    $flags =  $('.flag').siblings()
    $maxFlags = $('.flag').siblings().length
    console.log($maxFlags);
@@ -74,39 +69,42 @@ $(() => {
          currentImgIndex = 5
       }
    })
-//------------------------------language filter-----------------------------------
+//------------------------------language filter---------------------------
    $('.btn').on('click' , (e) => {
-      languageFilter = true
       $target = $(e.currentTarget)
-      languageIndex = $target[0].id
-      $target.toggleClass('locked')
-      // $target.toggleClass('btn')
-      $siblings = $('.language').siblings()
-      console.log($siblings);
-      for (let i = 0; i < 10; i++){
-         $($siblings[i]).toggleClass('locked')
-         $($siblings[i]).toggleClass('btn')
-         console.log($siblings[i]);
+      if ($target.hasClass('locked')=== true){
+      } else {
+         $target.toggleClass('on')
+         languageFilter = $target
+         languageIndex = $target[0].id
+         $target.toggleClass('locked')
+         $target.toggleClass('btn')
+         $siblings = $('.language').siblings()
+         for (let i = 0; i < 10; i++){
+            $($siblings[i]).toggleClass('locked')
+            $($siblings[i]).toggleClass('btn')
+         }
+         $('.content').empty()
+         console.log(applyFilters(languageIndex, countryIndex, countryIndex, keyword));
+         // ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
       }
-
-      $('.content').empty()
-      console.log(applyFilters(languageIndex, countryIndex, countryIndex, keyword));
-      // ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
    })
-//----------------------------------category filter------------------------------
+//----------------------------------category filter-----------------------
    $('.topicBtn').on('click' , (eve) => {
-      categoryFilter = true
-      categoryIndex = eve.currentTarget.innerText;
-      console.log(categoryIndex);
-      $siblings = $(eve.currentTarget).siblings()
-      for (let i = 0; i < 6; i++){
-         $($siblings[i]).toggleClass('locked')
-         $($siblings[i]).toggleClass('btn')
-         console.log($siblings[i]);
+      if ($(eve.currentTarget).hasClass('locked')=== true){
+      } else {
+         $(eve.currentTarget).toggleClass('on')
+         categoryFilter = $(eve.currentTarget)
+         categoryIndex = eve.currentTarget.innerText;
+         $siblings = $(eve.currentTarget).siblings()
+         for (let i = 0; i < 6; i++){
+            $($siblings[i]).toggleClass('locked')
+            $($siblings[i]).toggleClass('btn')
+         }
+         $('.content').empty()
+         console.log(applyFilters(languageIndex, countryIndex, countryIndex, keyword));
+         // ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
       }
-      $('.content').empty()
-      console.log(applyFilters(languageIndex, countryIndex, countryIndex, keyword));
-      // ajaxCall(applyFilters(languageIndex, countryIndex, categoryIndex))
    })
 //---------------------------------keyword filter-----------------------
    $('#searchButton').on('click', () => {
@@ -125,10 +123,17 @@ $(() => {
       countryFilter = true
       $('.content').empty()
       console.log(applyFilters(languageIndex, countryIndex, countryIndex, keyword));
+      ajaxCall(applyFilters(languageIndex, countryIndex, countryIndex, keyword))
 
    })
+//-------------------------------filters toggle--------------------------------
+   $('.filterButton').on('click' , () => {
+      $('.languageSelect').toggleClass('is-active')
+      $('.topicSelect').toggleClass('is-active')
+   })
+//-------------------------------------------------------------------------------------
 })
-//----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE--------!!!!!!!!!!!!!!!!!!!!!!---------------------------
+//------=--WARNINGGGG----^^^^^^^^^^^^^^^^^^^-DO NOT CROSS THIS LINE^^^^^^^^^^^^^------
 
 const printData = (array) => {
    for (let i = 0; i < array.length; i++){
@@ -149,7 +154,7 @@ const printData = (array) => {
       const $img = $('<img>').attr('src',img).appendTo($images)
    }
 }
-//----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE--------!!!!!!!!!!!!!!!!!!!!!!---------------------------
+//----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE---!!!!!!!!!!!!!!!!!!------------
 const ajaxCall = (url) => {
    $.ajax(
       {
@@ -159,14 +164,13 @@ const ajaxCall = (url) => {
       (data) => {
          let array = Object.values(data.data)
          printData(array)
-//----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE--------!!!!!!!!!!!!!!!!!!!!!!---------------------------
       },
       () => {
          console.log("failed to get data");
       }
    )
 }
-
+//----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE----!!!!!!!!!!!!!!-----------
 const applyFilters = (language, country, category, keyword) => {
     languages =`&languages=${language}`
     countries = `&countries=${country}`
@@ -180,10 +184,10 @@ const applyFilters = (language, country, category, keyword) => {
    if (countryFilter === true){
       ajaxUrl = ajaxUrl + countries
    }
-   if (languageFilter === true){
+   if (languageFilter.hasClass('on')=== true){
       ajaxUrl = ajaxUrl + languages
    }
-   if (categoryFilter === true){
+   if (categoryFilter.hasClass('on')===true){
       ajaxUrl = ajaxUrl + categories
    }
    return ajaxUrl

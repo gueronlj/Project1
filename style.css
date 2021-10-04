@@ -22,11 +22,13 @@ body {
 }
 
 .article img {
-   width: 100%;
+   width: inherit;
+   max-width: 100%;
 }
 
 .info h3 {
    color: #1c3975;
+   text-align: left;
 }
 
 .info a{
@@ -35,8 +37,9 @@ body {
 
 .info {
    margin-bottom: .5em;
-   text-align:left;
+   text-align:justify;
 }
+
 
 .menu {
    display: flex;
@@ -92,6 +95,7 @@ body {
    background-color: #4287f5;
    box-shadow: 1px 1px 2px navy;
    padding: .3em;
+   cursor: pointer;
 }
 
 .topic {
@@ -100,6 +104,7 @@ body {
    background-color: #69d187;
    box-shadow: 1px 1px 2px #1d4228;
    padding: .3em;
+   cursor: pointer;
 }
 
 .topic h5 {
@@ -119,6 +124,7 @@ img {
    width: 40px;
    height: auto;
    margin: 5px;
+   cursor: pointer;
 }
 
 h5 {
@@ -146,7 +152,10 @@ footer {
    align-items: center;
    user-select: none;
    color: #1c3975;
+}
 
+.carousel h1{
+   cursor: pointer;
 }
 
 #search {
@@ -169,4 +178,10 @@ footer {
    border-radius: 5px;
    box-shadow: 1px 1px 2px navy;
    color: white;
+   margin-right: 1em;
+   cursor: pointer;
+}
+.filterButton{
+   color: white;
+   cursor: pointer;
 }
