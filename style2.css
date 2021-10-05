@@ -104,6 +104,11 @@ body {
    font-size: .6em;
 }
 
+#expand {
+   user-select: none;
+   cursor: pointer;
+}
+
 #where p{
    font-size: .8em;
    text-align: left;
@@ -139,6 +144,7 @@ body {
    transform:translate(0, 0px);
    position: fixed;
    z-index: 2;
+   font-size: .8em;
 
 }
 
@@ -150,15 +156,17 @@ body {
    margin-left: 3%;
    margin-right: 3%;
    z-index: 1;
+   font-size: .8em;
 }
+
 h5{
    margin: 0 auto;
    font-weight: 100;
 }
 
 .article {
-   margin-left: 5%;
-   margin-right: 5%;
+   margin-left: 1%;
+   margin-right: 1%;
    max-width: 100%;
 }
 
@@ -181,7 +189,7 @@ h5{
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-   justify-content: flex-start;
+   justify-content: flex-end;
    background-color: #1c3975;
    padding: .3em;
    z-index:3;
@@ -192,7 +200,7 @@ h5{
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-   justify-content: flex-start;
+   justify-content: flex-end;
    background-color:#d6ffd4;
    padding: .3em;
    z-index: 2;

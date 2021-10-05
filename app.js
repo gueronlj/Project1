@@ -108,6 +108,7 @@ $(() => {
       $('.languageSelect').removeClass('is-active')
       $('.topicSelect').removeClass('is-active')
       $('#whereP').text(settings.country)
+      $('#modal').css('display','none')
    })
 
 //-------------------------------filters toggle--------------------------------
@@ -115,6 +116,25 @@ $(() => {
       $('.languageSelect').toggleClass('is-active')
       $('.topicSelect').toggleClass('is-active')
    })
+   //-----------------------------modal------------------------------------------- 
+   // $('#expand').on('click',() => {
+   //    const $allFlags = $('.flag').siblings()
+   //    const $halfFlags(($firstHalf.length)/2)+4;
+   //    for (let i = 0, i < $halfFlags; i++{
+   //       $allFlags[i].hide()
+   //    })
+   //    $('.flag').show()
+   //    $('#scope').css('display','block')
+   //    $('#scope').css('z-index','10')
+   //    $('#scope').css('background-color','white')
+   //    $('#scope').css('border','1px solid black')
+   //    $('#scope').css('transform','translateY(-450px)')
+   //    $('#scope').css('z-index','10')
+   //    $('#scope').css('height','700px')
+   //
+   //    console.log($('#modal'));
+   // })
+
 //-------------------------------------------------------------------------------------
 })
 //------=--WARNINGGGG----^^^^^^^^^^^^^^^^^^^-DO NOT CROSS THIS LINE^^^^^^^^^^^^^------
