@@ -165,6 +165,6 @@ const applyFilters = (settings) => {
     countries = `&countries=${settings.country}`
     categories = `&categories=${settings.category}`
     keywords = `&keywords=${settings.keyword}`
-    ajaxUrl = `http://api.mediastack.com/v1/news?access_key=${key}&date=${settings.startDate},2021-12-31&limit=20&sort=published_desc`+languages+countries+categories+keywords
+    ajaxUrl = `https://api.mediastack.com/v1/news?access_key=${key}&date=${settings.startDate},2021-12-31&limit=20&sort=published_desc`+languages+countries+categories+keywords
     return ajaxUrl
 }
