@@ -115,8 +115,9 @@ $(() => {
    $('.filterButton').on('click' , () => {
       $('.languageSelect').toggleClass('is-active')
       $('.topicSelect').toggleClass('is-active')
+
    })
-   //-----------------------------modal------------------------------------------- 
+   //-----------------------------modal-------------------------------------------
    // $('#expand').on('click',() => {
    //    const $allFlags = $('.flag').siblings()
    //    const $halfFlags(($firstHalf.length)/2)+4;

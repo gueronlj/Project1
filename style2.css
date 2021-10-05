@@ -1,5 +1,3 @@
-
-
 body {
    display: flex;
    flex-direction: column;
@@ -243,4 +241,92 @@ h5{
 
 .locked h5 {
    color: #8b98ad;
+}
+
+@media (min-width: 1000px){
+   body{
+      font-size: 2em;
+   }
+
+   .banner h1{
+      text-align: center;
+      margin-right: 0;
+   }
+
+   .carousel img, .countrySelect img{
+      width: 4rem;
+      height: 4rem;
+   }
+
+
+   .carousel h1{
+      margin: 0;
+   }
+
+   .carousel{
+      height: auto;
+      margin-top: 1em;
+   }
+
+   #search{
+      padding: .2em;
+      font-size: .7em;
+      justify-content: flex-end;
+      height: 76px
+   }
+
+   #searchInput{
+      width: 20%;
+      margin-left: .5em;
+      margin-right: 1em;
+   }
+
+   #searchButton {
+      margin-right: .5em;
+   }
+   /* .languageSelect.is-active {
+      transform: translate(324px, 334px);
+
+   }
+
+   .topicSelect.is-active {
+      transform: translate(324px, 334px);
+
+   } */
+
+   .menu{
+      font-size: .5em;
+      display: block;
+      z-index: 101;
+      position: fixed;
+      transform: translate(0px, 270px);
+   }
+
+   .topicSelect {
+      justify-content: flex-start;
+   }
+
+   .filterButton h5  {
+      display: none;
+   }
+
+   .topicSelect {
+      background-color: #1c3975
+   }
+
+   .content{
+      transform: translateY(350px);
+      font-size: .6em;
+   }
+
+   .article{
+      display: flex;
+      flex-direction: row;
+      margin-left: auto;
+      margin-right: auto;
+   }
+
+   .article img{
+      margin: .5em;
+   }
 }
