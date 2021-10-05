@@ -74,7 +74,6 @@ $(() => {
             $($siblings[i]).toggleClass('btn')
          }
          $('.content').empty()
-         console.log(settings);
       }
    })
 //----------------------------------category filter-----------------------
@@ -90,7 +89,6 @@ $(() => {
             $($siblings[i]).toggleClass('btn')
          }
          $('.content').empty()
-         console.log(settings);
       }
    })
 //---------------------------------keyword filter-----------------------
@@ -100,7 +98,6 @@ $(() => {
       $('.content').empty()
       $('.languageSelect').removeClass('is-active')
       $('.topicSelect').removeClass('is-active')
-      console.log(settings);
       console.log(applyFilters(settings));
       ajaxCall(applyFilters(settings))
    })
@@ -110,8 +107,9 @@ $(() => {
       $('.content').empty()
       $('.languageSelect').removeClass('is-active')
       $('.topicSelect').removeClass('is-active')
-      console.log(settings)
+      $('#whereP').text(settings.country)
    })
+
 //-------------------------------filters toggle--------------------------------
    $('.filterButton').on('click' , () => {
       $('.languageSelect').toggleClass('is-active')
