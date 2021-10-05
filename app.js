@@ -155,7 +155,7 @@ const printData = (array) => {
          const $title = $('<h3>').addClass('title').text(title).appendTo($info)
          const $date = $('<p>').addClass('info').text(date).appendTo($info)
          const $description = $('<p>').addClass('info').text(description).appendTo($info)
-         // const $url = $('<a>').addClass('info').text(url).appendTo($info)
+         const $url = $('<a>').addClass('info').text('View original').attr('href',url).appendTo($info)
          const $img = $('<img>').attr('src',img).appendTo($images)
       }
    }else{

@@ -243,6 +243,10 @@ h5{
    color: #8b98ad;
 }
 
+.article a{
+   text-decoration: none;
+}
+
 @media (min-width: 1000px){
    body{
       font-size: 2em;
