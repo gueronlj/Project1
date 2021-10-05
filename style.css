@@ -69,7 +69,7 @@ body {
    padding: .3em;
    z-index:99;
    transition: .4s;
-   transform: translate(0px, 0px);
+
    position: fixed;
 }
 
@@ -79,10 +79,10 @@ body {
    flex-wrap: wrap;
    justify-content: flex-start;
    background-color:#d6ffd4;
-   padding: .5em;
+   padding: .3em;
    z-index: 98;
    transition: .4s;
-   transform: translate(0px, 0px,);
+
    position: fixed;
 }
 
