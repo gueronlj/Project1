@@ -115,7 +115,6 @@ $(() => {
    $('.filterButton').on('click' , () => {
       $('.languageSelect').toggleClass('is-active')
       $('.topicSelect').toggleClass('is-active')
-
    })
    //-----------------------------modal-------------------------------------------
    // $('#expand').on('click',() => {
@@ -161,6 +160,7 @@ const printData = (array) => {
    }else{
       $('<div>').addClass('error').appendTo($('#content'))
       $('<h3>').text('Search found 0 articles...').appendTo($('.error'))
+      resetFilters()
    }
 }
 //----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE---!!!!!!!!!!!!!!!!!!------------
@@ -174,10 +174,7 @@ const ajaxCall = (url) => {
          let array = Object.values(data.data)
          printData(array)
          console.log(url);
-         settings.country='';
-         settings.language='';
-         settings.category='';
-         settings.keyword='';
+         resetFilters()
       },
       () => {
          console.log("failed to get data");
@@ -192,4 +189,11 @@ const applyFilters = (settings) => {
     keywords = `&keywords=${settings.keyword}`
     ajaxUrl = `https://api.mediastack.com/v1/news?access_key=${key}&date=${settings.startDate},2021-12-31&limit=20&sort=published_desc`+languages+countries+categories+keywords
     return ajaxUrl
+}
+
+const resetFilters = () => {
+   settings.country='';
+   settings.language='';
+   settings.category='';
+   settings.keyword='';
 }

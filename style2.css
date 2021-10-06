@@ -143,6 +143,7 @@ body {
    position: fixed;
    z-index: 2;
    font-size: .8em;
+   font-weight: 200;
 
 }
 
@@ -248,6 +249,86 @@ h5{
 .article a{
    text-decoration: none;
 }
+@media (min-width: 700px){
+   body{
+      font-size: 2em;
+   }
+   .header{
+      position: inherit;
+      align-self: center;
+   }
+   .banner h1{
+      text-align: center;
+      margin-right: 0;
+   }
+   .carousel img, .countrySelect img{
+      width: 5rem;
+      height: 5rem;
+      margin-left: .5em;
+      margin-right: .5em;
+   }
+   .carousel h1{
+      margin: 0;
+   }
+
+   .carousel{
+      height: auto;
+      margin-top: 1em;
+   }
+   #searchInput{
+      max-width: 290px;
+
+   }
+   #search{
+      justify-content: center;
+      padding: 0;
+   }
+   #search div{
+      margin: 0 1em;
+   }
+
+   .languageSelect.is-active {
+
+      transform: translate(0px, 175px);
+   }
+
+   .topicSelect.is-active {
+      transform: translate(0px, 175px);
+   }
+
+   .topicSelect, .topicSelect:after,{
+      position: inherit;
+
+   }
+   .languageSelect, .languageSelect:after{
+      position: inherit;
+   }
+   .content{
+      transform: none;
+      font-size: .6em;
+      align-self: center;
+      margin-top: 2em;
+   }
+
+   .menu {
+      position: inherit;
+      font-size: .8em;
+      background-color: inherit;
+      transform: translateY(-185px);
+   }
+
+   .content{
+      transform: translateY(-150px);
+      align-self: center;
+   }
+
+   .language:hover{
+      background-color: #6ba4ff;
+   }
+   .topic:hover{
+      background-color: #7ce69a;
+   }
+}
 
 @media (min-width: 1000px){
    body{
@@ -275,9 +356,6 @@ h5{
       margin-right: .5em;
    }
 
-   #scope img{
-
-   }
 
    .carousel h1{
       margin: 0;
@@ -294,22 +372,31 @@ h5{
       justify-content: flex-end;
       height: 75px;
       margin-right: 5%;
+      z-index: 1;
    }
 
    #searchInput{
-      max-width: 190px;
-      margin-right: 1em;
+      width: 200px;
+      margin-right: 0;
       margin-left: .7em;
+      transform: translateX(60px);
+      text-align: right;
    }
 
    #searchButton {
-      margin-right: 5%;
+   margin: 0;
+      transform: translateX(50px);
    }
 
    #where {
       margin-left: 72%;
       margin-right: .2em;
    }
+
+   #filterButton{
+      display:none;
+   }
+
 
 
    .topicSelect, .languageSelect {
@@ -325,7 +412,7 @@ h5{
    }
 
    .content{
-      transform: none;
+      transform: translateY(-80px);
       font-size: .6em;
       align-self: center;
    }
@@ -347,14 +434,13 @@ h5{
       z-index: 101;
       background-color: inherit;
       transform: translateY(-80px);
-      margin-right: 30%;
+      width:702px;
    }
 
    .languageSelect {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
-      background-color: inherit;
       padding: .3em;
       padding-bottom: .1em;
    }
@@ -363,7 +449,6 @@ h5{
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
-      background-color: inherit;
       padding: .3em;
    }
    .language:hover{
