@@ -109,6 +109,7 @@ $(() => {
       $('.topicSelect').removeClass('is-active')
       $('#whereP').text(settings.country)
       $('#modal').css('display','none')
+      ajaxCall(applyFilters(settings))
    })
 
 //-------------------------------filters toggle--------------------------------
