@@ -1,11 +1,12 @@
-@media (max-width: 699){
-   
-}
+/* @media (max-width: 699){
+
+} */
 
 body {
    display: flex;
    flex-direction: column;
    font-size: 3em;
+   margin: 0px;
 }
 
 .banner h1 {
@@ -153,7 +154,8 @@ body {
    display: flex;
    flex-direction: column;
    flex-wrap: wrap;
-   transform: translateY(730px);
+   align-self: center;
+   transform: translateY(710px);
    margin-left: 3%;
    margin-right: 3%;
    z-index: 1;
@@ -252,7 +254,7 @@ h5{
 .article a{
    text-decoration: none;
 }
-@media (min-width: 700px){
+@media (min-width:700px) and (min-width:999px){
    body{
       font-size: 2em;
       margin: 0 5%;
@@ -381,6 +383,7 @@ h5{
       height: 75px;
       z-index: 1;
       margin-right: 3%;
+      margin-left: 3%;
    }
 
    #searchInput{
