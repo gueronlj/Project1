@@ -222,6 +222,7 @@ h5{
    padding: .3em;
    cursor: pointer;
    color: white;
+   user-select: none;
 }
 
 .topic {
@@ -232,6 +233,7 @@ h5{
    padding: .3em;
    color: white;
    cursor: pointer;
+   user-select: none;
 }
 
 .locked {
@@ -250,6 +252,15 @@ h5{
 @media (min-width: 1000px){
    body{
       font-size: 2em;
+      margin-left: 5%;
+      margin-right: 5%;
+   }
+
+
+   .header{
+      position: inherit;
+      align-self: center;
+
    }
 
    .banner h1{
@@ -260,8 +271,13 @@ h5{
    .carousel img, .countrySelect img{
       width: 4rem;
       height: 4rem;
+      margin-left: .5em;
+      margin-right: .5em;
    }
 
+   #scope img{
+
+   }
 
    .carousel h1{
       margin: 0;
@@ -272,41 +288,31 @@ h5{
       margin-top: 1em;
    }
 
-   #search{
+   #search {
       padding: .2em;
       font-size: .7em;
       justify-content: flex-end;
-      height: 76px
+      height: 75px;
+      margin-right: 5%;
    }
 
    #searchInput{
-      width: 20%;
-      margin-left: .5em;
+      max-width: 190px;
       margin-right: 1em;
+      margin-left: .7em;
    }
 
    #searchButton {
-      margin-right: .5em;
-   }
-   /* .languageSelect.is-active {
-      transform: translate(324px, 334px);
-
+      margin-right: 5%;
    }
 
-   .topicSelect.is-active {
-      transform: translate(324px, 334px);
-
-   } */
-
-   .menu{
-      font-size: .5em;
-      display: block;
-      z-index: 101;
-      position: fixed;
-      transform: translate(0px, 270px);
+   #where {
+      margin-left: 72%;
+      margin-right: .2em;
    }
 
-   .topicSelect {
+
+   .topicSelect, .languageSelect {
       justify-content: flex-start;
    }
 
@@ -319,18 +325,52 @@ h5{
    }
 
    .content{
-      transform: translateY(350px);
+      transform: none;
       font-size: .6em;
+      align-self: center;
    }
 
    .article{
       display: flex;
       flex-direction: row;
-      margin-left: auto;
-      margin-right: auto;
+      margin-left: 15%;
+      margin-right: 15%;
    }
 
    .article img{
       margin: .5em;
    }
+
+   .menu {
+      position: inherit;
+      font-size: .5em;
+      z-index: 101;
+      background-color: inherit;
+      transform: translateY(-80px);
+      margin-right: 30%;
+   }
+
+   .languageSelect {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      background-color: inherit;
+      padding: .3em;
+      padding-bottom: .1em;
+   }
+
+   .topicSelect {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      background-color: inherit;
+      padding: .3em;
+   }
+   .language:hover{
+      background-color: #6ba4ff;
+   }
+   .topic:hover{
+      background-color: #7ce69a;
+   }
+
 }

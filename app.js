@@ -174,6 +174,10 @@ const ajaxCall = (url) => {
          let array = Object.values(data.data)
          printData(array)
          console.log(url);
+         settings.country='';
+         settings.language='';
+         settings.category='';
+         settings.keyword='';
       },
       () => {
          console.log("failed to get data");
