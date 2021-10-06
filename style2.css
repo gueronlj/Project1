@@ -198,6 +198,7 @@ h5{
    padding: .3em;
    z-index:3;
    transition: .4s;
+   font-weight: normal;
 }
 
 .topicSelect, .topicSelect:after, .topicSelect:before {
@@ -209,6 +210,7 @@ h5{
    padding: .3em;
    z-index: 2;
    transition: .5s;
+   font-weight: normal;
 
 }
 
