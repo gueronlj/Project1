@@ -258,14 +258,7 @@ h5{
    text-decoration: none;
 }
 
-@media  screen and (min-width:700px){
-   body{
-      font-size: 3em;
-      margin: 0 5%;
-      align-self: center;
-   }
 
-}
 
 @media only screen and (min-width: 1024px){
    body{
