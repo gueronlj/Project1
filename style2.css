@@ -231,6 +231,7 @@ h5{
    cursor: pointer;
    color: white;
    user-select: none;
+   font-weight: bolder;
 }
 
 .topic {
@@ -242,6 +243,7 @@ h5{
    color: white;
    cursor: pointer;
    user-select: none;
+   font-weight: bolder;
 }
 
 .locked {
