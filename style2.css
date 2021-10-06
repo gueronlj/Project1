@@ -260,88 +260,11 @@ h5{
 
 @media  screen and (min-width:700px){
    body{
-      font-size: 2em;
+      font-size: 3em;
       margin: 0 5%;
       align-self: center;
    }
-   .header{
-      position: inherit;
-      align-self: center;
-   }
-   .banner h1{
-      text-align: center;
-      margin-right: 0;
-   }
-   .carousel img, .countrySelect img{
-      width: 5rem;
-      height: 5rem;
-      margin-left: .5em;
-      margin-right: .5em;
-   }
-   .carousel h1{
-      margin: 0;
-   }
 
-   .carousel{
-      height: auto;
-      margin-top: 1em;
-   }
-   #searchInput{
-      max-width: 290px;
-
-   }
-   #search{
-      justify-content: center;
-      padding: 0;
-      font-size: .8em;
-
-   }
-   #search div{
-      margin: 0 1em;
-   }
-
-
-   .languageSelect.is-active {
-
-      transform: translate(0px, 185px);
-   }
-
-   .topicSelect.is-active {
-      transform: translate(0px, 185px);
-   }
-
-   .topicSelect, .topicSelect:after,{
-      position: inherit;
-
-   }
-   .languageSelect, .languageSelect:after{
-      position: inherit;
-   }
-   .content{
-      transform: none;
-      font-size: .6em;
-      align-self: center;
-      margin-top: 2em;
-   }
-
-   .menu {
-      position: inherit;
-      font-size: .6em;
-      background-color: inherit;
-      transform: translateY(-185px);
-   }
-
-   .content{
-      transform: translateY(-165px);
-      align-self: center;
-   }
-
-   .language:hover{
-      background-color: #6ba4ff;
-   }
-   .topic:hover{
-      background-color: #7ce69a;
-   }
 }
 
 @media only screen and (min-width: 1024px){
