@@ -258,7 +258,7 @@ h5{
    text-decoration: none;
 }
 
-/* @media  screen and (min-width:700px){
+@media  screen and (min-width:700px){
    body{
       font-size: 2em;
       margin: 0 5%;
@@ -342,7 +342,7 @@ h5{
    .topic:hover{
       background-color: #7ce69a;
    }
-} */
+}
 
 @media only screen and (min-width: 1024px){
    body{
