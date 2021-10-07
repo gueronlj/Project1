@@ -165,7 +165,7 @@ const printData = (array) => {
       resetFilters()
    }
 }
-//----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE---!!!!!!!!!!!!!!!!!!------------
+//-----------------------------------------------------------------------------------
 const ajaxCall = (url) => {
    $.ajax(
       {
@@ -183,7 +183,7 @@ const ajaxCall = (url) => {
       }
    )
 }
-//----------------WARNINGGGG!!!!!!!!!!!-----DO NOT CROSS THIS LINE----!!!!!!!!!!!!!!-----------
+//----------------------------------------------------------------------------------------
 const applyFilters = (settings) => {
     languages =`&languages=${settings.language}`
     countries = `&countries=${settings.country}`
