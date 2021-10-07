@@ -183,7 +183,7 @@ h5{
    text-align:left;
 }
 
-.languageSelect, .languageSelect:after, .languageSelect:before {
+.languageSelect {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
@@ -195,7 +195,7 @@ h5{
    font-weight: normal;
 }
 
-.topicSelect, .topicSelect:after, .topicSelect:before {
+.topicSelect {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;

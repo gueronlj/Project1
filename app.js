@@ -73,13 +73,14 @@ $(() => {
             $($siblings[i]).toggleClass('locked')
             $($siblings[i]).toggleClass('btn')
          }
-         $('.content').empty()
+         // $('.content').empty()
       }
    })
 //----------------------------------category filter-----------------------
    $('.topicBtn').on('click' , (eve) => {
       $target = $(eve.currentTarget)
       if ($target.hasClass('locked')=== true){
+         settings.category=''
       } else {
          settings.category = eve.currentTarget.innerText;
          $target.toggleClass('on')
@@ -88,7 +89,7 @@ $(() => {
             $($siblings[i]).toggleClass('locked')
             $($siblings[i]).toggleClass('btn')
          }
-         $('.content').empty()
+         // $('.content').empty()
       }
    })
 //---------------------------------keyword filter-----------------------
